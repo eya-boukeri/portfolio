@@ -2,7 +2,7 @@ import React from 'react';
 import { info } from '../data/portfolio';
 
 export default function Hero() {
-  const photo = '/profile.jpg';
+  const photo = `${process.env.PUBLIC_URL}/profile.jpg`;
 
   const s = {
     section: {
@@ -86,8 +86,8 @@ export default function Hero() {
       <div style={s.section}>
         <div style={s.left}>
           <div style={s.badges}>
-            <span style={s.badge('#4f8ef7')}>Disponible pour un stage</span>
-            <span style={s.badge('#7c3aed')}>2ème année Ingénieur</span>
+            <span style={s.badge('#4f8ef7')}>Available for an internship</span>
+            <span style={s.badge('#7c3aed')}>second year Engineer</span>
           </div>
 
           <h1 style={s.h1}>

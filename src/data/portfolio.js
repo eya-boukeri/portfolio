@@ -23,7 +23,7 @@ export const info = {
   email:       'aya.boukari@etudiant-enit.utm.tn',
   linkedin:    'https://linkedin.com/in/aya-boukari',
   github:      'https://github.com/eya-boukeri',
-  cvUrl:       '/cv.pdf',
+  cvUrl:       `${process.env.PUBLIC_URL}/cv.pdf`,
 };
 
 export const navLinks = [
