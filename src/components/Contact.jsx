@@ -1,0 +1,112 @@
+import React from 'react';
+import { info } from '../data/portfolio';
+
+export default function Contact() {
+  const s = {
+    section: { padding: '6rem 2.5rem', maxWidth: 1200, margin: '0 auto' },
+    heading: { fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, marginBottom: 8 },
+    accent: { background: 'linear-gradient(135deg, #7c3aed, #4f8ef7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    underline: { width: 60, height: 3, background: 'linear-gradient(135deg, #7c3aed, #4f8ef7)', borderRadius: 2, marginBottom: 48 },
+    grid: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'start' },
+    subtitle: { fontSize: 16, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginBottom: '2rem' },
+    infoList: { display: 'flex', flexDirection: 'column', gap: 16 },
+    infoItem: { display: 'flex', alignItems: 'center', gap: 14, padding: '1rem 1.25rem', background: '#161625', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12 },
+    infoIcon: { width: 40, height: 40, borderRadius: 10, background: 'rgba(124,58,237,0.15)', border: '1px solid rgba(124,58,237,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 },
+    infoLabel: { fontSize: 12, color: 'rgba(255,255,255,0.4)', marginBottom: 2 },
+    infoVal: { fontSize: 14, fontWeight: 500 },
+    form: { display: 'flex', flexDirection: 'column', gap: 16 },
+    input: {
+      padding: '12px 16px', borderRadius: 10, fontSize: 14,
+      background: '#161625', border: '1px solid rgba(255,255,255,0.1)',
+      color: '#fff', outline: 'none', fontFamily: 'inherit',
+      transition: 'border-color 0.2s',
+    },
+    textarea: {
+      padding: '12px 16px', borderRadius: 10, fontSize: 14,
+      background: '#161625', border: '1px solid rgba(255,255,255,0.1)',
+      color: '#fff', outline: 'none', fontFamily: 'inherit',
+      resize: 'vertical', minHeight: 120,
+      transition: 'border-color 0.2s',
+    },
+    submitBtn: {
+      padding: '13px', borderRadius: 10, fontSize: 15, fontWeight: 600,
+      background: 'linear-gradient(135deg, #7c3aed, #4f8ef7)',
+      color: '#fff', cursor: 'pointer', border: 'none',
+      transition: 'opacity 0.2s', fontFamily: 'inherit',
+    },
+  };
+
+  return (
+    <section id="contact" style={{ background: '#0f0f1e' }}>
+      <div style={s.section}>
+        <h2 style={s.heading}>Get In <span style={s.accent}>Touch</span></h2>
+        <div style={s.underline} />
+        <div style={s.grid}>
+          <div>
+            <p style={s.subtitle}>
+              I am currently looking for an engineering internship.<br />
+              Feel free to contact me to discuss opportunities.
+            </p>
+            <div style={s.infoList}>
+              {[
+                { icon: '✉', label: 'Email', val: info.email, href: `mailto:${info.email}` },
+                { icon: 'in', label: 'LinkedIn', val: 'linkedin.com/in/prenom-nom', href: info.linkedin },
+                { icon: '⌥', label: 'GitHub', val: 'github.com/prenom-nom', href: info.github },
+                { icon: '📍', label: 'Location', val: info.location, href: null },
+              ].map(item => (
+                <div key={item.label} style={s.infoItem}>
+                  <div style={s.infoIcon}>{item.icon}</div>
+                  <div>
+                    <div style={s.infoLabel}>{item.label}</div>
+                    {item.href
+                      ? <a href={item.href} style={{ ...s.infoVal, color: '#4f8ef7' }}>{item.val}</a>
+                      : <div style={s.infoVal}>{item.val}</div>
+                    }
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <form
+            style={s.form}
+            action={`https://formsubmit.co/${info.email}`}
+            method="POST"
+            target="_blank"
+          >
+            <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input
+              style={s.input}
+              type="text"
+              name="name"
+              placeholder="Votre nom"
+              required
+            />
+            <input
+              style={s.input}
+              type="email"
+              name="email"
+              placeholder="Votre email"
+              required
+            />
+            <textarea
+              style={s.textarea}
+              name="message"
+              placeholder="Votre message..."
+              required
+            />
+            <button
+              type="submit"
+              style={s.submitBtn}
+              onMouseEnter={e => e.target.style.opacity = 0.85}
+              onMouseLeave={e => e.target.style.opacity = 1}
+            >
+              Envoyer le message →
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}
