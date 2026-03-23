@@ -90,9 +90,9 @@ export const experiences = [
     tags:        ['Telecom', 'Network Infrastructure', 'Fiber Optics'],
   },
   {
-    role:        'Treasurer',
+    role:        ' Former Treasurer & secretary',
     company:     'IEEE ENIT - WIE Affinity Group',
-    period:      '2025 — Present',
+    period:      '2025 — 2026',
     description: 'Managed club treasury tasks and contributed to team organization and event support.',
     tags:        ['Leadership', 'Organization', 'Teamwork'],
   },
