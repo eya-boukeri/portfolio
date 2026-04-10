@@ -50,6 +50,7 @@ export default function Contact() {
             <div style={s.infoList}>
               {[
                 { icon: '✉', label: 'Email', val: info.email, href: `mailto:${info.email}` },
+                { icon: '📞', label: 'Phone', val: info.phone, href: info.phone ? `tel:${info.phone.replace(/\s+/g, '')}` : null },
                 { icon: 'in', label: 'LinkedIn', val: 'linkedin.com/in/prenom-nom', href: info.linkedin },
                 { icon: '⌥', label: 'GitHub', val: 'github.com/prenom-nom', href: info.github },
                 { icon: '📍', label: 'Location', val: info.location, href: null },

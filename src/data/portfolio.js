@@ -17,13 +17,14 @@ export const info = {
   quickFacts: {
     graduation:  '2027',
     institution: 'ENIT, Tunisia',
-    interests:   'IoT Web/Mobile, Systèmes distribués ,Machine Learning ,IA, Open Source ,Veille technologique',
+    interests:   'IoT Web/Mobile, Distributed systems ,Machine Learning ,IA, Open Source ,Veille technologique',
   },
   location:    'Tabarka, Tunis ,Tunisia',
+  phone:       '+216 93160198',
   email:       'aya.boukari@etudiant-enit.utm.tn',
   linkedin:    'https://linkedin.com/in/aya-boukari',
   github:      'https://github.com/eya-boukeri',
-  cvUrl:       `${process.env.PUBLIC_URL}/cv.pdf`,
+  cvUrl:       `${process.env.PUBLIC_URL}/cv.pdf?v=20260410b`,
 };
 
 export const navLinks = [
@@ -55,25 +56,25 @@ export const education = [
     degree:      'Baccalaureate in Mathematics',
     school:      'Lycée Tabarka',
     period:      '2021 — 2022',
-    description: 'Graduated with honors (Mention Bien).',
+    description: 'Graduated with honors .',
     tags:        ['Mathematics', 'Honors'],
   },
 ];
 
 export const experiences = [
   {
-    role:        'Medical Remote Monitoring IoT Platform (In Progress)',
-    company:     'PFA2',
-    period:      '2025 — Present',
-    description: 'Designing an event-driven microservices architecture to collect and analyze vital signs (ECG, blood pressure, glucose) from connected devices with asynchronous communication.',
-    tags:        ['Docker', 'Kafka', 'Spring Boot', 'MQTT', 'WebSocket', 'Microservices'],
+    role:        'Observation Internship',
+    company:     'Tunisie Telecom',
+    period:      '2024',
+    description: 'Observed telecom network infrastructure operations, including fiber optic installation and maintenance workflows.',
+    tags:        ['Telecom', 'Network Infrastructure', 'Fiber Optics'],
   },
   {
-    role:        'Appointment Booking Web Application',
-    company:     'Academic Project',
+    role:        'Smart Pen for Dyslexic People',
+    company:     'IEEE ENIT - WIE Affinity Group',
     period:      '2025',
-    description: 'Designed and developed a web application for appointment management with CRUD operations, user session handling, and a dynamic interface.',
-    tags:        ['JEE', 'Servlets', 'MySQL', 'CRUD'],
+    description: 'Developed a mobile application, within a club project, connected to a smart pen via Bluetooth to help dyslexic users improve speech.',
+    tags:        ['Flutter', 'Bluetooth', 'Mobile Development', 'IEEE Project'],
   },
   {
     role:        'International Files Management Platform',
@@ -83,35 +84,35 @@ export const experiences = [
     tags:        ['Backend', 'Scrum', 'Teamwork', 'Project Coordination'],
   },
   {
-    role:        'Observation Internship',
-    company:     'Tunisie Telecom',
-    period:      '2024',
-    description: 'Observed telecom network infrastructure operations, including fiber optic installation and maintenance workflows.',
-    tags:        ['Telecom', 'Network Infrastructure', 'Fiber Optics'],
-  },
-  {
-    role:        ' Former Treasurer & secretary',
+    role:        'Former Treasurer & Secretary',
     company:     'IEEE ENIT - WIE Affinity Group',
-    period:      '2025 — 2026',
+    period:      '2024 — 2025',
     description: 'Managed club treasury tasks and contributed to team organization and event support.',
     tags:        ['Leadership', 'Organization', 'Teamwork'],
-  },
-  {
-    role:        'Active Member',
-    company:     'G2FOSS ENIT',
-    period:      '2025 — Present',
-    description: 'Participating in open-source and technical activities within the student community.',
-    tags:        ['Open Source', 'Community', 'Collaboration'],
   },
 ];
 
 export const projects = [
   {
-    title:       'Medical Remote Monitoring IoT Platform',
+    title:       'Medical Remote Monitoring IoT Platform (PFA2)',
     description: 'Event-driven microservices platform for real-time medical monitoring with connected objects and live dashboard workflows.',
     tags:        ['Docker', 'Kafka', 'Spring Boot', 'MQTT', 'WebSocket'],
-    github:      '#',
-    demo:        '#',
+    github:      'https://github.com/eya-boukeri/pfa',
+    demo:        null,
+  },
+  {
+    title:       'Magical Forest Game (Smurfs Game)',
+    description: 'Academic project: developed a graphical game using C# and .NET with MVVM architecture.',
+    tags:        ['C#', '.NET Framework', 'WPF', 'MVVM'],
+    github:      'https://github.com/eya-boukeri/SmurfGame',
+    demo:        `${process.env.PUBLIC_URL}/demo-smurf-game.mp4`,
+  },
+   {
+    title:       'Appointment Booking Web Application',
+    description: 'Designed and developed a web application for appointment management with CRUD operations, user session handling, and a dynamic interface.',
+    tags:        ['JEE', 'Servlets', 'MySQL', 'CRUD'],
+    github:      'https://github.com/eya-boukeri/RendezvousDentaire',
+    demo:        `${process.env.PUBLIC_URL}/demo-jee.zip`,
   },
   {
     title:       'Intelligent Nutrition Chatbot (PFA1)',
@@ -121,26 +122,21 @@ export const projects = [
     demo:        null,
   },
   {
-    title:       'Smart Pen for Dyslexic People',
-    description: 'Developed a mobile application connected to a smart pen via Bluetooth to help dyslexic users improve speech.',
-    tags:        ['Flutter', 'Bluetooth', 'Mobile Development', 'IEEE Project'],
-    github:      '#',
-    demo:        '#',
-  },
-  {
     title:       'Library Management Application',
     description: 'Developed a C console application to manage books with add/search/sort/delete functionalities and memory management.',
     tags:        ['C', 'Algorithms', 'Memory Management', 'Console UI'],
-    github:      '#',
+    github:      'null',
     demo:        null,
   },
   {
     title:       'Java Desktop Application',
     description: 'Created an object-oriented Java application with a graphical user interface designed for maintainability.',
     tags:        ['Java', 'OOP', 'GUI'],
-    github:      '#',
-    demo:        '#',
+    github:      'https://github.com/dhieeddine/MiniProjetJava',
+    demo:        null,
   },
+ 
+  
 ];
 
 export const skillCategories = [

@@ -82,8 +82,8 @@ export default function About() {
             <div style={s.langSection}>
               <p style={s.langTitle}>Languages</p>
               <div style={s.langRow}>
-                {['Arabic (Native)', 'French (C1)', 'English (B2)'].map(l => (
-                  <span key={l} style={s.langTag}>{l}</span>
+                {languages.map(({ lang, level }) => (
+                  <span key={lang} style={s.langTag}>{lang} ({level})</span>
                 ))}
               </div>
             </div>
