@@ -2,6 +2,8 @@ import React from 'react';
 import { info } from '../data/portfolio';
 
 export default function Contact() {
+  const displayUrl = url => url?.replace(/^https?:\/\//, '');
+
   const s = {
     section: { padding: '6rem 2.5rem', maxWidth: 1200, margin: '0 auto' },
     heading: { fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, marginBottom: 8 },
@@ -51,8 +53,8 @@ export default function Contact() {
               {[
                 { icon: '✉', label: 'Email', val: info.email, href: `mailto:${info.email}` },
                 { icon: '📞', label: 'Phone', val: info.phone, href: info.phone ? `tel:${info.phone.replace(/\s+/g, '')}` : null },
-                { icon: 'in', label: 'LinkedIn', val: 'linkedin.com/in/prenom-nom', href: info.linkedin },
-                { icon: '⌥', label: 'GitHub', val: 'github.com/prenom-nom', href: info.github },
+                { icon: 'in', label: 'LinkedIn', val: displayUrl(info.linkedin), href: info.linkedin },
+                { icon: '⌥', label: 'GitHub', val: displayUrl(info.github), href: info.github },
                 { icon: '📍', label: 'Location', val: info.location, href: null },
               ].map(item => (
                 <div key={item.label} style={s.infoItem}>
