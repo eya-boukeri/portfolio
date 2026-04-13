@@ -66,28 +66,32 @@ export const experiences = [
     role:        'Observation Internship',
     company:     'Tunisie Telecom',
     period:      '2024',
-    description: 'Observed telecom network infrastructure operations, including fiber optic installation and maintenance workflows.',
+    description: 'Completed an observership internship at Tunisie Telecom, where I gained exposure to network and telecommunications infrastructure. I observed fiber optic installation and maintenance processes, developing a practical understanding of telecom infrastructure and professional workplace immersion.',
     tags:        ['Telecom', 'Network Infrastructure', 'Fiber Optics'],
   },
   {
     role:        'Smart Pen for Dyslexic People',
     company:     'IEEE ENIT - WIE Affinity Group',
     period:      '2025',
-    description: 'Developed a mobile application, within a club project, connected to a smart pen via Bluetooth to help dyslexic users improve speech.',
+    description: 'Developed a mobile application connected to a smart pen using Flutter with Bluetooth integration. The objective is to assist dyslexic individuals in improving speech and learning. This project was conducted within the IEEE ENIT Club.',
     tags:        ['Flutter', 'Bluetooth', 'Mobile Development', 'IEEE Project'],
   },
   {
     role:        'International Files Management Platform',
     company:     'Academic Team Project',
     period:      '2025',
-    description: 'Contributed to backend development and task coordination using Scrum practices (sprints, daily meetings, role-based collaboration).',
+    description: 'Contributed to the development of a records management application within a team environment using the Scrum methodology. My role included backend development and task coordination, working closely with team members during sprints and daily meetings.',
     tags:        ['Backend', 'Scrum', 'Teamwork', 'Project Coordination'],
   },
   {
     role:        'Former Treasurer & Secretary',
     company:     'IEEE ENIT - WIE Affinity Group',
     period:      '2024 — 2025',
-    description: 'Managed club treasury tasks and contributed to team organization and event support.',
+    description: `This role has been more than just managing tasks — it has been a valuable opportunity to contribute to meaningful work and connect with inspiring people. As Treasurer, I ensure the smooth management of the club's finances, allowing us to organize impactful events. As Secretary, I help document our journey, coordinate teams, and keep everyone aligned.
+
+Beyond the administrative side, this experience has allowed me to build strong relationships with fellow engineering students, professors, and professionals in the tech community. Working alongside passionate people who are committed to promoting women in engineering has been truly gratifying.
+
+I have learned that great work happens when people come together — and I am proud to play a role in making that happen.`,
     tags:        ['Leadership', 'Organization', 'Teamwork'],
   },
 ];
@@ -95,28 +99,28 @@ export const experiences = [
 export const projects = [
   {
     title:       'Medical Remote Monitoring IoT Platform (PFA2)',
-    description: 'Event-driven microservices platform for real-time medical monitoring with connected objects and live dashboard workflows.',
+    description: 'Designing a microservices architecture for collecting and analyzing vital signs (ECG, blood pressure, PPG) via connected medical devices. The platform uses an event-driven communication bus with Docker, Kafka, Spring Boot, MQTT, and React. Planned microservices include data collection, medical alerts, and a real-time dashboard.',
     tags:        ['Docker', 'Kafka', 'Spring Boot', 'MQTT', 'WebSocket'],
     github:      'https://github.com/eya-boukeri/pfa',
     demo:        null,
   },
   {
     title:       'Magical Forest Game (Smurfs Game)',
-    description: 'Academic project: developed a graphical game using C# and .NET with MVVM architecture.',
+    description: 'Academic project: Developed a graphical game based on "The Magical Forest" (Smurfs-themed) using C# and .NET with MVVM architecture. The game features interactive gameplay, graphical assets, and event-driven user controls built with Windows Presentation Foundation (WPF).',
     tags:        ['C#', '.NET Framework', 'WPF', 'MVVM'],
     github:      'https://github.com/eya-boukeri/SmurfGame',
     demo:        `${process.env.PUBLIC_URL}/demo-smurf-game.mp4`,
   },
    {
     title:       'Appointment Booking Web Application',
-    description: 'Designed and developed a web application for appointment management with CRUD operations, user session handling, and a dynamic interface.',
+    description: 'Designed and developed a web-based appointment management application using JEE for the backend, Servlets for the frontend, and MySQL for data storage. The application implements full CRUD operations, user session management, and a dynamic interface.',
     tags:        ['JEE', 'Servlets', 'MySQL', 'CRUD'],
     github:      'https://github.com/eya-boukeri/RendezvousDentaire',
     demo:        `${process.env.PUBLIC_URL}/demo-jee.zip`,
   },
   {
     title:       'Intelligent Nutrition Chatbot (PFA1)',
-    description: 'Built an LLM-based chatbot with an interactive web interface and API integration for natural language processing.',
+    description: 'Developed an LLM-based chatbot with an interactive web interface designed to provide nutritional guidance. The backend was built with Flask, the frontend with HTML/CSS/JavaScript, and it integrates an OpenAI-compatible API for natural language processing.',
     tags:        ['Flask', 'HTML/CSS/JavaScript', 'LLM', 'OpenAI-Compatible API'],
     github:      '#',
     demo:        null,
@@ -130,7 +134,7 @@ export const projects = [
   },
   {
     title:       'Java Desktop Application',
-    description: 'Created an object-oriented Java application with a graphical user interface designed for maintainability.',
+    description: 'Created a Java application with a graphical user interface (non-command-line). Implemented an object-oriented architecture to ensure code maintainability and scalability. Achievements include developing core functionalities and designing the user interface.',
     tags:        ['Java', 'OOP', 'GUI'],
     github:      'https://github.com/dhieeddine/MiniProjetJava',
     demo:        null,
