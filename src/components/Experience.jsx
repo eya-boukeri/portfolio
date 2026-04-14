@@ -34,7 +34,7 @@ export default function Experience() {
               >
                 <div>
                   <p style={s.role}>{exp.role}</p>
-                  <p style={s.company}>🏢 {exp.company}</p>
+                  <p style={s.company}>{exp.company}</p>
                   <p style={s.desc}>{exp.description}</p>
                   <div style={s.tags}>
                     {exp.tags.map(t => <span key={t} style={s.tag}>{t}</span>)}

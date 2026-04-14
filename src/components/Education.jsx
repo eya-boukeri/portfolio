@@ -39,7 +39,7 @@ export default function Education() {
                   <span style={s.degree}>{edu.degree}</span>
                   <span style={s.period}>{edu.period}</span>
                 </div>
-                <p style={s.school}>🏛 {edu.school}</p>
+                <p style={s.school}>{edu.school}</p>
                 <p style={s.desc}>{edu.description}</p>
                 <div style={s.tags}>
                   {edu.tags.map(t => <span key={t} style={s.tag}>{t}</span>)}

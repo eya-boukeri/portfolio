@@ -32,7 +32,6 @@ export default function Skills() {
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.transform = 'none'; }}
             >
               <div style={s.catHeader}>
-                <span style={s.catIcon}>{cat.icon}</span>
                 <span style={{ ...s.catName, color: cat.color }}>{cat.name}</span>
               </div>
               <div style={s.skillList}>

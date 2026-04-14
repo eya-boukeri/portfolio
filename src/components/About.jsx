@@ -107,12 +107,11 @@ export default function About() {
             <div style={s.quickCard}>
               <p style={s.quickTitle}>Quick Facts</p>
               {[
-                { icon: '📅', label: 'Graduation', val: info.quickFacts.graduation },
-                { icon: '🏛', label: 'Institution', val: info.quickFacts.institution },
-                { icon: '</>', label: 'Interests',  val: info.quickFacts.interests },
+                { label: 'Graduation', val: info.quickFacts.graduation },
+                { label: 'Institution', val: info.quickFacts.institution },
+                { label: 'Interests',  val: info.quickFacts.interests },
               ].map(r => (
                 <div key={r.label} style={s.quickRow}>
-                  <span style={s.quickIcon}>{r.icon}</span>
                   <div>
                     <div style={s.quickLabel}>{r.label}</div>
                     <div style={s.quickVal}>{r.val}</div>
@@ -122,7 +121,6 @@ export default function About() {
             </div>
 
             <div style={s.specCard}>
-              <div style={s.specIcon}>🧠</div>
               <p style={s.specTitle}>Spécialisations</p>
               <ul style={s.specList}>
                 {['Full-Stack Web', 'IA / LLM', 'Algorithmique', 'Bases de donnees', 'IoT', 'Microservices', 'Reseaux'].map(item => (

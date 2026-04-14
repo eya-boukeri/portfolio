@@ -137,7 +137,6 @@ export default function Hero() {
               <img src={photo} alt="Profil" style={s.photoImg} />
             ) : (
               <div style={s.photoPlaceholder}>
-                <div style={s.photoIcon}>👤</div>
                 <div style={s.photoText}>
                   <span style={s.photoTextAccent}>+ Ajouter votre photo</span>
                   Cliquez pour uploader
