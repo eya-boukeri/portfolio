@@ -15,13 +15,6 @@ export default function Projects() {
       transition: 'border-color 0.2s, transform 0.2s',
       cursor: 'pointer',
     },
-    cardIcon: {
-      width: 48, height: 48, borderRadius: 12,
-      background: 'linear-gradient(135deg, rgba(124,58,237,0.2), rgba(79,142,247,0.2))',
-      border: '1px solid rgba(124,58,237,0.2)',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      fontSize: 22, marginBottom: 16,
-    },
     title: { fontSize: 16, fontWeight: 700, marginBottom: 10 },
     desc: { fontSize: 14, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginBottom: 18, flex: 1 },
     tags: { display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 18 },
@@ -36,8 +29,6 @@ export default function Projects() {
     }),
   };
 
-  const icons = ['💻', '📊', '📱', '🤖', '⚡', '🔬'];
-
   return (
     <section id="projects" style={{ background: '#0f0f1e' }}>
       <div style={s.section}>
@@ -49,15 +40,14 @@ export default function Projects() {
               onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(124,58,237,0.5)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.transform = 'none'; }}
             >
-              <div style={s.cardIcon}>{icons[i % icons.length]}</div>
               <p style={s.title}>{p.title}</p>
               <p style={s.desc}>{p.description}</p>
               <div style={s.tags}>
                 {p.tags.map(t => <span key={t} style={s.tag}>{t}</span>)}
               </div>
               <div style={s.links}>
-                {p.github && <a href={p.github} target="_blank" rel="noreferrer" style={s.linkBtn(false)}>⌥ GitHub</a>}
-                {p.demo   && <a href={p.demo}   target="_blank" rel="noreferrer" style={s.linkBtn(true)}>↗ Demo</a>}
+                {p.github && <a href={p.github} target="_blank" rel="noreferrer" style={s.linkBtn(false)}>GitHub</a>}
+                {p.demo   && <a href={p.demo}   target="_blank" rel="noreferrer" style={s.linkBtn(true)}>Demo</a>}
               </div>
             </div>
           ))}

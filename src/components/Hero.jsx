@@ -58,11 +58,11 @@ export default function Hero() {
     },
     socials: { display: 'flex', gap: 10, flexWrap: 'wrap' },
     socialBtn: {
-      width: 44, height: 44, borderRadius: 10,
+      minWidth: 104, height: 44, padding: '0 14px', borderRadius: 10,
       background: 'rgba(255,255,255,0.05)',
       border: '1px solid rgba(255,255,255,0.1)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      fontSize: 18, cursor: 'pointer', transition: 'all 0.2s', color: '#fff',
+      fontSize: 14, fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', color: '#fff',
       flexShrink: 0,
     },
     right: {
@@ -86,7 +86,6 @@ export default function Hero() {
     },
     photoImg: { width: '100%', height: '100%', objectFit: 'cover' },
     photoPlaceholder: { textAlign: 'center', padding: '1rem' },
-    photoIcon: { fontSize: 56, marginBottom: 10, opacity: 0.5 },
     photoText: { fontSize: 13, color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 },
     photoTextAccent: { color: '#7c3aed', fontWeight: 600, display: 'block' },
   };
@@ -110,20 +109,20 @@ export default function Hero() {
 
           <div style={s.actions}>
             <a href="#contact" style={s.btnPrimary}>
-              Get In Touch →
+              Get In Touch
             </a>
             <a href={info.cvUrl} style={s.btnSecondary} download="CV_Aya_Boukari.pdf">
-              ↓ Download CV
+              Download CV
             </a>
             <a href={info.cvUrl} style={s.btnSecondary} target="_blank" rel="noreferrer">
-              Open CV ↗
+              Open CV
             </a>
           </div>
 
           <div style={s.socials}>
-            <a href={info.github}   target="_blank" rel="noreferrer" style={s.socialBtn} title="GitHub">⌥</a>
-            <a href={info.linkedin} target="_blank" rel="noreferrer" style={s.socialBtn} title="LinkedIn">in</a>
-            <a href={`mailto:${info.email}`} style={s.socialBtn} title="Email">✉</a>
+            <a href={info.github}   target="_blank" rel="noreferrer" style={s.socialBtn} title="GitHub">GitHub</a>
+            <a href={info.linkedin} target="_blank" rel="noreferrer" style={s.socialBtn} title="LinkedIn">LinkedIn</a>
+            <a href={`mailto:${info.email}`} style={s.socialBtn} title="Email">Mail</a>
           </div>
         </div>
 

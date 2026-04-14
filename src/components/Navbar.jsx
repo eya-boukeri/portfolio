@@ -47,26 +47,26 @@ export default function Navbar({ darkMode, setDarkMode }) {
       whiteSpace: 'nowrap',
     }),
     themeBtn: {
-      width: 38, height: 38, borderRadius: 10,
+      minWidth: 84, height: 38, padding: '0 12px', borderRadius: 10,
       background: 'rgba(255,255,255,0.06)',
       border: '1px solid rgba(255,255,255,0.1)',
-      color: '#fff', fontSize: 16,
+      color: '#fff', fontSize: 13, fontWeight: 600,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       cursor: 'pointer', transition: 'all 0.2s',
       flexShrink: 0,
     },
     hamburger: {
       display: 'none',
-      flexDirection: 'column', gap: 5,
+      minWidth: 72, height: 38, padding: '0 12px',
       cursor: 'pointer',
       flexShrink: 0,
+      color: '#fff', fontSize: 13, fontWeight: 600,
+      borderRadius: 10,
+      background: 'rgba(255,255,255,0.06)',
+      border: '1px solid rgba(255,255,255,0.1)',
+      display: 'none',
+      alignItems: 'center', justifyContent: 'center',
       '@media (max-width: 768px)': { display: 'flex' },
-    },
-    hamburgerLine: {
-      width: 24, height: 2,
-      background: '#fff',
-      borderRadius: 1,
-      transition: 'all 0.3s ease',
     },
     mobileMenu: {
       display: 'none',
@@ -115,16 +115,14 @@ export default function Navbar({ darkMode, setDarkMode }) {
           })}
         </div>
         <button style={s.themeBtn} onClick={() => setDarkMode(!darkMode)}>
-          {darkMode ? '☀' : '🌙'}
+          {darkMode ? 'Light' : 'Dark'}
         </button>
         <button
           style={s.hamburger}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Menu"
         >
-          <div style={{...s.hamburgerLine, transform: mobileMenuOpen ? 'rotate(45deg) translateY(11px)' : 'rotate(0)'}} />
-          <div style={{...s.hamburgerLine, opacity: mobileMenuOpen ? 0 : 1}} />
-          <div style={{...s.hamburgerLine, transform: mobileMenuOpen ? 'rotate(-45deg) translateY(-11px)' : 'rotate(0)'}} />
+          {mobileMenuOpen ? 'Close' : 'Menu'}
         </button>
       </div>
       

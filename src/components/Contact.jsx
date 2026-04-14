@@ -51,14 +51,13 @@ export default function Contact() {
             </p>
             <div style={s.infoList}>
               {[
-                { icon: '✉', label: 'Email', val: info.email, href: `mailto:${info.email}` },
-                { icon: '📞', label: 'Phone', val: info.phone, href: info.phone ? `tel:${info.phone.replace(/\s+/g, '')}` : null },
-                { icon: 'in', label: 'LinkedIn', val: displayUrl(info.linkedin), href: info.linkedin },
-                { icon: '⌥', label: 'GitHub', val: displayUrl(info.github), href: info.github },
-                { icon: '📍', label: 'Location', val: info.location, href: null },
+                { label: 'Email', val: info.email, href: `mailto:${info.email}` },
+                { label: 'Phone', val: info.phone, href: info.phone ? `tel:${info.phone.replace(/\s+/g, '')}` : null },
+                { label: 'LinkedIn', val: displayUrl(info.linkedin), href: info.linkedin },
+                { label: 'GitHub', val: displayUrl(info.github), href: info.github },
+                { label: 'Location', val: info.location, href: null },
               ].map(item => (
                 <div key={item.label} style={s.infoItem}>
-                  <div style={s.infoIcon}>{item.icon}</div>
                   <div>
                     <div style={s.infoLabel}>{item.label}</div>
                     {item.href
@@ -105,7 +104,7 @@ export default function Contact() {
               onMouseEnter={e => e.target.style.opacity = 0.85}
               onMouseLeave={e => e.target.style.opacity = 1}
             >
-              Envoyer le message →
+              Envoyer le message
             </button>
           </form>
         </div>
