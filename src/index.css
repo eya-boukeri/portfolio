@@ -45,3 +45,29 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-10px); }
 }
+
+/* Mobile-friendly improvements */
+@media (max-width: 768px) {
+  html { font-size: 16px; }
+  body { overflow-x: hidden; }
+  
+  button:hover { transform: scale(0.98); }
+  a { transition: opacity 0.2s; }
+}
+
+@media (max-width: 480px) {
+  html { font-size: 15px; }
+  ::-webkit-scrollbar { width: 4px; }
+}
+
+/* Touch-friendly buttons and interactive elements */
+@media (hover: none) and (pointer: coarse) {
+  button, a { min-height: 44px; min-width: 44px; }
+  button { padding: clamp(10px, 2vw, 14px) !important; }
+}
+
+/* Ensure proper display on landscape mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  section { padding-top: 60px !important; min-height: auto; }
+}
+
