@@ -102,7 +102,7 @@ export const projects = [
     description: 'Designing a microservices architecture for collecting and analyzing vital signs (ECG, blood pressure, PPG) via connected medical devices. The platform uses an event-driven communication bus with Docker, Kafka, Spring Boot, MQTT, and React. Planned microservices include data collection, medical alerts, and a real-time dashboard.',
     tags:        ['Docker', 'Kafka', 'Spring Boot', 'MQTT', 'WebSocket'],
     github:      'https://github.com/eya-boukeri/pfa',
-    demo:        null,
+    demo:        `${process.env.PUBLIC_URL}/demo-pfa.mp4`,
   },
   {
     title:       'Magical Forest Game (Smurfs Game)',
@@ -152,25 +152,25 @@ export const skillCategories = [
   },
   {
     name:   'Frameworks',
-    icon:   '⚡',
+    icon:   '',
     color:  '#7c3aed',
     skills: ['Spring Boot', 'JEE', 'Flask', 'Flutter', 'React'],
   },
   {
     name:   'Databases',
-    icon:   '🗄',
+    icon:   '',
     color:  '#10b981',
     skills: ['MySQL', 'InfluxDB', 'MongoDB' ,'PostgreSQL'],
   },
   {
     name:   'Architecture & Tools',
-    icon:   '🛠',
+    icon:   '',
     color:  '#f59e0b',
     skills: ['Microservices', 'Docker', 'Kafka', 'MQTT', 'WebSocket', 'Git'],
   },
   {
     name:   'Networks & Methodologies',
-    icon:   '🧠',
+    icon:   '',
     color:  '#ec4899',
     skills: ['CCNA1 (Cisco)', 'TCP/IP', 'IP Addressing', 'OSI/TCP Model', 'Scrum', 'Project Management'],
   },
@@ -184,7 +184,7 @@ export const languages = [
 
 export const aboutCards = [
   { icon: '📍', title: 'Location',   value: 'Tabarka, Tunisia' },
-  { icon: '🎓', title: 'Education',  value: 'ENIT - Computer Engineering' },
-  { icon: '💡', title: 'Focus',      value: 'IoT, Web/Mobile, Microservices' },
-  { icon: '🎯', title: 'Goal',       value: 'Engineering internship' },
+  { icon: '', title: 'Education',  value: 'ENIT - Computer Engineering' },
+  { icon: '', title: 'Focus',      value: 'IoT, Web/Mobile, Microservices' },
+  { icon: '', title: 'Goal',       value: 'Engineering internship' },
 ];
