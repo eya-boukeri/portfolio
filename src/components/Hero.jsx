@@ -1,147 +1,370 @@
 import React from 'react';
 import { info } from '../data/portfolio';
+import { FiDownload, FiExternalLink, FiMail, FiMapPin, FiArrowRight, FiBriefcase } from 'react-icons/fi';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
 
 export default function Hero() {
   const photo = `${process.env.PUBLIC_URL}/profile.jpg`;
 
   const s = {
     section: {
-      minHeight: '100vh',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      padding: 'clamp(1rem, 4%, 2.5rem)',
-      paddingTop: 'clamp(100px, 12vh, 120px)',
-      maxWidth: 1200, margin: '0 auto',
-      gap: 'clamp(2rem, 5vw, 4rem)',
-      flexWrap: 'wrap',
-    },
-    left: { 
-      flex: '1 1 clamp(280px, 100%, 600px)', 
-      animation: 'fadeUp 0.7s ease both',
-      minWidth: 0,
-    },
-    badges: { display: 'flex', gap: 10, marginBottom: 28, flexWrap: 'wrap' },
-    badge: (color) => ({
-      padding: '6px 16px', borderRadius: 20,
-      fontSize: 'clamp(12px, 2vw, 13px)', fontWeight: 500,
-      border: `1px solid ${color}55`,
-      background: `${color}18`,
-      color: color,
-    }),
-    h1: { fontSize: 'clamp(2rem, 6vw, 3.8rem)', fontWeight: 800, lineHeight: 1.15, marginBottom: 16 },
-    nameAccent1: { color: '#4f8ef7' },
-    nameAccent2: {
-      display: 'block',
-      background: 'linear-gradient(135deg, #7c3aed, #4f8ef7)',
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-    },
-    subtitle: { fontSize: 'clamp(16px, 4vw, 20px)', fontWeight: 600, color: 'rgba(255,255,255,0.7)', marginBottom: 20 },
-    desc: { fontSize: 'clamp(14px, 2.5vw, 15px)', color: 'rgba(255,255,255,0.5)', maxWidth: 520, lineHeight: 1.75, marginBottom: 36 },
-    actions: { display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 36 },
-    btnPrimary: {
-      padding: 'clamp(10px 20px, 2vw, 12px 28px)', borderRadius: 10,
-      background: 'linear-gradient(135deg, #7c3aed, #4f8ef7)',
-      color: '#fff', fontSize: 'clamp(13px, 2vw, 15px)', fontWeight: 600,
-      display: 'flex', alignItems: 'center', gap: 8,
-      cursor: 'pointer', transition: 'opacity 0.2s, transform 0.15s',
-      border: 'none',
-      minWidth: 'auto',
-    },
-    btnSecondary: {
-      padding: 'clamp(10px 20px, 2vw, 12px 28px)', borderRadius: 10,
-      background: 'rgba(255,255,255,0.05)',
-      border: '1px solid rgba(255,255,255,0.12)',
-      color: '#fff', fontSize: 'clamp(13px, 2vw, 15px)', fontWeight: 600,
-      display: 'flex', alignItems: 'center', gap: 8,
-      cursor: 'pointer', transition: 'all 0.2s',
-      minWidth: 'auto',
-    },
-    socials: { display: 'flex', gap: 10, flexWrap: 'wrap' },
-    socialBtn: {
-      minWidth: 104, height: 44, padding: '0 14px', borderRadius: 10,
-      background: 'rgba(255,255,255,0.05)',
-      border: '1px solid rgba(255,255,255,0.1)',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      fontSize: 14, fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', color: '#fff',
-      flexShrink: 0,
-    },
-    right: {
-      flex: '0 1 clamp(200px, 100%, 320px)',
-      display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14,
-      animation: 'fadeIn 1s ease both 0.3s',
-      minWidth: 0,
-    },
-    photoWrap: {
-      width: 'clamp(200px, 90vw, 280px)', 
-      height: 'clamp(250px, 120vw, 340px)',
-      borderRadius: 24,
-      background: 'linear-gradient(135deg, #1a1a2e, #2a1a3e)',
-      border: '1px solid rgba(124,58,237,0.3)',
-      overflow: 'hidden',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      flexDirection: 'column', gap: 12,
-      transition: 'border-color 0.2s, transform 0.2s',
+      minHeight: '92vh',
+      display: 'flex',
+      alignItems: 'center',
+      paddingTop: 'clamp(84px, 12vh, 120px)',
+      paddingBottom: 'clamp(3rem, 6vw, 5rem)',
       position: 'relative',
-      animation: 'float 4s ease-in-out infinite',
     },
-    photoImg: { width: '100%', height: '100%', objectFit: 'cover' },
-    photoPlaceholder: { textAlign: 'center', padding: '1rem' },
-    photoText: { fontSize: 13, color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 },
-    photoTextAccent: { color: '#7c3aed', fontWeight: 600, display: 'block' },
+    container: {
+      maxWidth: 1200,
+      margin: '0 auto',
+      padding: '0 clamp(1.25rem, 4vw, 2.5rem)',
+      width: '100%',
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))',
+      gap: 'clamp(2.5rem, 6vw, 4.5rem)',
+      alignItems: 'center',
+    },
+    leftCol: {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    badgesRow: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 12,
+      flexWrap: 'wrap',
+      marginBottom: 24,
+    },
+
+    schoolBadge: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 8,
+      padding: '7px 14px',
+      borderRadius: 'var(--radius-full)',
+      background: 'rgba(255, 255, 255, 0.03)',
+      border: '1px solid rgba(148, 163, 184, 0.18)',
+      color: '#94a3b8',
+      fontSize: 13,
+      fontWeight: 500,
+    },
+    schoolDot: {
+      width: 6,
+      height: 6,
+      borderRadius: '50%',
+      background: '#64748b',
+    },
+    greeting: {
+      fontSize: 'clamp(1rem, 2vw, 1.15rem)',
+      fontWeight: 600,
+      color: '#94a3b8',
+      marginBottom: 8,
+      letterSpacing: '0.02em',
+    },
+    heading: {
+      fontSize: 'clamp(2.25rem, 5.5vw, 3.75rem)',
+      fontWeight: 800,
+      letterSpacing: '-0.03em',
+      lineHeight: 1.15,
+      color: '#f8fafc',
+      marginBottom: 16,
+    },
+    nameHighlight: {
+      color: '#3b82f6',
+    },
+    roleTitle: {
+      fontSize: 'clamp(1.1rem, 2.5vw, 1.35rem)',
+      fontWeight: 600,
+      color: '#cbd5e1',
+      marginBottom: 18,
+      lineHeight: 1.4,
+    },
+    description: {
+      fontSize: 'clamp(14px, 2vw, 16px)',
+      color: '#94a3b8',
+      lineHeight: 1.75,
+      maxWidth: 560,
+      marginBottom: 32,
+    },
+    actionsRow: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 12,
+      flexWrap: 'wrap',
+      marginBottom: 36,
+    },
+    primaryBtn: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 8,
+      padding: '12px 24px',
+      borderRadius: 'var(--radius-md)',
+      background: '#2563eb',
+      border: '1px solid rgba(255, 255, 255, 0.1)',
+      color: '#ffffff',
+      fontSize: 14,
+      fontWeight: 600,
+      boxShadow: '0 4px 14px rgba(37, 99, 235, 0.3)',
+      transition: 'background 0.15s ease, transform 0.15s ease',
+    },
+    secondaryBtn: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 8,
+      padding: '12px 20px',
+      borderRadius: 'var(--radius-md)',
+      background: 'rgba(255, 255, 255, 0.04)',
+      border: '1px solid rgba(148, 163, 184, 0.2)',
+      color: '#f8fafc',
+      fontSize: 14,
+      fontWeight: 600,
+      transition: 'all 0.15s ease',
+    },
+    socialsRow: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 12,
+      paddingTop: 20,
+      borderTop: '1px solid rgba(148, 163, 184, 0.1)',
+    },
+    socialIconBtn: {
+      width: 42,
+      height: 42,
+      borderRadius: 'var(--radius-md)',
+      background: 'rgba(255, 255, 255, 0.04)',
+      border: '1px solid rgba(148, 163, 184, 0.15)',
+      color: '#cbd5e1',
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: 16,
+      transition: 'all 0.15s ease',
+    },
+    locationTag: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 6,
+      fontSize: 13,
+      color: '#64748b',
+      marginLeft: 8,
+    },
+    rightCol: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    photoCard: {
+      position: 'relative',
+      width: '100%',
+      maxWidth: 320,
+      borderRadius: 'var(--radius-xl)',
+      background: '#131929',
+      border: '1px solid rgba(148, 163, 184, 0.16)',
+      padding: 10,
+      boxShadow: 'var(--shadow-lg)',
+      transition: 'border-color 0.2s ease, transform 0.2s ease',
+    },
+    photoFrame: {
+      width: '100%',
+      aspectRatio: '4 / 5',
+      borderRadius: 16,
+      overflow: 'hidden',
+      background: '#0d1322',
+      position: 'relative',
+    },
+    photoImg: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      display: 'block',
+    },
   };
 
   return (
-    <section id="home">
-      <div style={s.section}>
-        <div style={s.left}>
-          <div style={s.badges}>
-            <span style={s.badge('#4f8ef7')}>Available for an internship</span>
-            <span style={s.badge('#7c3aed')}>second year Engineer</span>
+    <section id="home" style={s.section}>
+      <div style={s.container}>
+        {/* Left Column: Bio & Calls to Action */}
+        <div style={s.leftCol}>
+          <div style={s.badgesRow}>
+            <a href="#contact" className="pfe-badge-hero" title="Click to get in touch for PFE opportunities">
+              <span className="pfe-sheen" />
+              <span className="pfe-pulse-dot">
+                <span className="pfe-ping-ring" />
+                <span className="pfe-core-dot" />
+              </span>
+              <span style={{ color: '#ffffff', fontWeight: 700, fontSize: 13, letterSpacing: '-0.01em' }}>
+                Available for PFE
+              </span>
+              <span style={{ color: 'rgba(148, 163, 184, 0.6)', fontSize: 12 }}>·</span>
+              <span className="pfe-date-tag">
+                Feb 2027
+              </span>
+            </a>
+            <div style={s.schoolBadge}>
+              <span style={s.schoolDot} />
+              <span>3rd-Year Student @ ENIT</span>
+            </div>
           </div>
 
-          <h1 style={s.h1}>
-            Hi, I'm <span style={s.nameAccent1}>{info.prenom}</span>
-            <span style={s.nameAccent2}>{info.nom}</span>
+          <p style={s.greeting}>Hello, I'm</p>
+          <h1 style={s.heading}>
+            {info.prenom} <span style={s.nameHighlight}>{info.nom}</span>
           </h1>
 
-          <p style={s.subtitle}>{info.role} — {info.specialite}</p>
-          <p style={s.desc}>{info.description}</p>
+          <p style={s.roleTitle}>
+            {info.role} · {info.institution}
+          </p>
 
-          <div style={s.actions}>
-            <a href="#contact" style={s.btnPrimary}>
-              Get In Touch
+          <p style={s.description}>
+            {info.description}
+          </p>
+
+          <div style={s.actionsRow}>
+            <a
+              href="#contact"
+              style={s.primaryBtn}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = '#1d4ed8';
+                e.currentTarget.style.transform = 'translateY(-1px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = '#2563eb';
+                e.currentTarget.style.transform = 'none';
+              }}
+            >
+              <span>Get in Touch</span>
+              <FiArrowRight size={16} />
             </a>
-            <a href={info.cvUrl} style={s.btnSecondary} download="CV_Aya_Boukari.pdf">
-              Download CV
-            </a>
-            <a href={info.cvUrl} style={s.btnSecondary} target="_blank" rel="noreferrer">
-              Open CV
+
+            <div style={{ display: 'inline-flex', borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid rgba(148, 163, 184, 0.2)' }}>
+              <a
+                href={info.cvEnUrl}
+                download="CV_Aya_Boukari_EN.pdf"
+                style={{ ...s.secondaryBtn, border: 'none', borderRadius: 0, padding: '12px 16px' }}
+                title="Download Official CV in English"
+                onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)'}
+                onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)'}
+              >
+                <FiDownload size={15} />
+                <span>CV (EN)</span>
+              </a>
+              <a
+                href={info.cvFrUrl}
+                download="CV_Aya_Boukari_FR.pdf"
+                style={{ ...s.secondaryBtn, border: 'none', borderLeft: '1px solid rgba(148, 163, 184, 0.2)', borderRadius: 0, padding: '12px 16px' }}
+                title="Télécharger le CV officiel en Français"
+                onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)'}
+                onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)'}
+              >
+                <FiDownload size={15} />
+                <span>CV (FR)</span>
+              </a>
+            </div>
+
+            <a
+              href={info.cvEnUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={s.secondaryBtn}
+              title="Open CV in new tab"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
+              }}
+            >
+              <FiExternalLink size={15} />
+              <span>Preview</span>
             </a>
           </div>
 
-          <div style={s.socials}>
-            <a href={info.github}   target="_blank" rel="noreferrer" style={s.socialBtn} title="GitHub">GitHub</a>
-            <a href={info.linkedin} target="_blank" rel="noreferrer" style={s.socialBtn} title="LinkedIn">LinkedIn</a>
-            <a href={`mailto:${info.email}`} style={s.socialBtn} title="Email">Mail</a>
+          <div style={s.socialsRow}>
+            <a
+              href={info.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={s.socialIconBtn}
+              aria-label="GitHub Profile"
+              title="GitHub"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#f8fafc';
+                e.currentTarget.style.borderColor = '#3b82f6';
+                e.currentTarget.style.background = 'rgba(37, 99, 235, 0.12)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = '#cbd5e1';
+                e.currentTarget.style.borderColor = 'rgba(148, 163, 184, 0.15)';
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
+              }}
+            >
+              <FaGithub size={18} />
+            </a>
+
+            <a
+              href={info.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={s.socialIconBtn}
+              aria-label="LinkedIn Profile"
+              title="LinkedIn"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#f8fafc';
+                e.currentTarget.style.borderColor = '#3b82f6';
+                e.currentTarget.style.background = 'rgba(37, 99, 235, 0.12)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = '#cbd5e1';
+                e.currentTarget.style.borderColor = 'rgba(148, 163, 184, 0.15)';
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
+              }}
+            >
+              <FaLinkedinIn size={18} />
+            </a>
+
+            <a
+              href={`mailto:${info.email}`}
+              style={s.socialIconBtn}
+              aria-label="Email Address"
+              title="Send an Email"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#f8fafc';
+                e.currentTarget.style.borderColor = '#3b82f6';
+                e.currentTarget.style.background = 'rgba(37, 99, 235, 0.12)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = '#cbd5e1';
+                e.currentTarget.style.borderColor = 'rgba(148, 163, 184, 0.15)';
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
+              }}
+            >
+              <FiMail size={18} />
+            </a>
+
+            <div style={s.locationTag}>
+              <FiMapPin size={14} color="#3b82f6" />
+              <span>{info.location}</span>
+            </div>
           </div>
         </div>
 
-        <div style={s.right}>
+        {/* Right Column: Photo Card */}
+        <div style={s.rightCol}>
           <div
-            style={s.photoWrap}
-            onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(124,58,237,0.7)'}
-            onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(124,58,237,0.3)'}
+            style={s.photoCard}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.35)';
+              e.currentTarget.style.transform = 'translateY(-3px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(148, 163, 184, 0.16)';
+              e.currentTarget.style.transform = 'none';
+            }}
           >
-            {photo ? (
-              <img src={photo} alt="Profil" style={s.photoImg} />
-            ) : (
-              <div style={s.photoPlaceholder}>
-                <div style={s.photoText}>
-                  <span style={s.photoTextAccent}>+ Ajouter votre photo</span>
-                  Cliquez pour uploader
-                </div>
-              </div>
-            )}
+            <div style={s.photoFrame}>
+              <img src={photo} alt={`${info.prenom} ${info.nom}`} style={s.photoImg} />
+            </div>
           </div>
         </div>
       </div>

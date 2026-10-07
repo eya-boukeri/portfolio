@@ -1,0 +1,97 @@
+/* ════════════════════════════════════════════════════════════════
+   STARRY NIGHT PARALLAX BACKGROUND
+   3-Layer animated starfield (50s, 100s, 150s) with seamless vertical loop
+   ════════════════════════════════════════════════════════════════ */
+
+.stars-background-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.5px;
+  height: 1.5px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: var(--star-shadow-1);
+  animation: animStar 50s linear infinite;
+}
+
+#stars:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  left: 0;
+  width: 1.5px;
+  height: 1.5px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: var(--star-shadow-1);
+}
+
+#stars2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.5px;
+  height: 2.5px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: var(--star-shadow-2);
+  animation: animStar 100s linear infinite;
+}
+
+#stars2:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  left: 0;
+  width: 2.5px;
+  height: 2.5px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: var(--star-shadow-2);
+}
+
+#stars3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3.5px;
+  height: 3.5px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: var(--star-shadow-3);
+  animation: animStar 150s linear infinite;
+}
+
+#stars3:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  left: 0;
+  width: 3.5px;
+  height: 3.5px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: var(--star-shadow-3);
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}

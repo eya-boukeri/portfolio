@@ -1,50 +1,139 @@
 import React from 'react';
 import { experiences } from '../data/portfolio';
+import { FiBriefcase, FiCalendar, FiArrowRight } from 'react-icons/fi';
 
 export default function Experience() {
   const s = {
-    section: { padding: 'clamp(3rem, 8vw, 6rem) clamp(1rem, 4%, 2.5rem)', maxWidth: 1200, margin: '0 auto' },
-    heading: { fontSize: 'clamp(1.75rem, 5vw, 2.8rem)', fontWeight: 800, marginBottom: 8 },
-    accent: { background: 'linear-gradient(135deg, #7c3aed, #4f8ef7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
-    underline: { width: 60, height: 3, background: 'linear-gradient(135deg, #7c3aed, #4f8ef7)', borderRadius: 2, marginBottom: 48 },
-    grid: { display: 'flex', flexDirection: 'column', gap: 'clamp(1rem, 2vw, 1.5rem)' },
-    card: { background: '#161625', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16, padding: 'clamp(1.25rem, 3vw, 1.75rem)', transition: 'border-color 0.2s', display: 'grid', gridTemplateColumns: 'clamp(1fr, 100%, 1fr auto)', gap: '1rem', alignItems: 'start' },
-    role: { fontSize: 'clamp(15px, 3vw, 17px)', fontWeight: 700, marginBottom: 4 },
-    company: { fontSize: 'clamp(13px, 2vw, 14px)', color: '#4f8ef7', fontWeight: 500, marginBottom: 12 },
-    desc: { fontSize: 'clamp(12px, 2vw, 14px)', color: 'rgba(255,255,255,0.55)', lineHeight: 1.7, marginBottom: 14 },
-    tags: { display: 'flex', flexWrap: 'wrap', gap: 8 },
-    tag: { fontSize: 'clamp(11px, 1.5vw, 12px)', padding: '3px 10px', borderRadius: 6, background: 'rgba(124,58,237,0.1)', border: '1px solid rgba(124,58,237,0.25)', color: '#a78bfa' },
-    period: { fontSize: 'clamp(11px, 2vw, 13px)', color: '#7c3aed', fontWeight: 600, background: 'rgba(124,58,237,0.15)', padding: '4px 14px', borderRadius: 20, border: '1px solid rgba(124,58,237,0.3)', whiteSpace: 'nowrap' },
-    empty: { textAlign: 'center', padding: '3rem', color: 'rgba(255,255,255,0.3)', fontSize: 'clamp(13px, 2vw, 15px)' },
+    section: {
+      background: 'var(--bg-primary)',
+    },
+    timeline: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 24,
+      position: 'relative',
+    },
+    card: {
+      background: 'var(--card-bg)',
+      border: '1px solid var(--card-border)',
+      borderRadius: 'var(--radius-lg)',
+      padding: 'clamp(1.25rem, 3vw, 1.75rem)',
+      transition: 'border-color 0.2s ease, transform 0.2s ease',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 14,
+    },
+    cardHeader: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
+      flexWrap: 'wrap',
+      gap: 12,
+    },
+    roleTitle: {
+      fontSize: 'clamp(16px, 2.5vw, 18px)',
+      fontWeight: 700,
+      color: '#f8fafc',
+      marginBottom: 4,
+    },
+    companyName: {
+      fontSize: 14,
+      fontWeight: 600,
+      color: '#3b82f6',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 6,
+    },
+    periodBadge: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 6,
+      fontSize: 12,
+      fontWeight: 600,
+      color: '#94a3b8',
+      background: 'rgba(255, 255, 255, 0.05)',
+      border: '1px solid rgba(148, 163, 184, 0.15)',
+      padding: '4px 12px',
+      borderRadius: 'var(--radius-full)',
+      whiteSpace: 'nowrap',
+    },
+    description: {
+      fontSize: 14,
+      color: '#94a3b8',
+      lineHeight: 1.75,
+    },
+    tagsContainer: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: 8,
+      paddingTop: 8,
+      borderTop: '1px solid rgba(148, 163, 184, 0.08)',
+    },
+    tag: {
+      fontSize: 12,
+      fontWeight: 500,
+      color: '#cbd5e1',
+      background: 'rgba(255, 255, 255, 0.04)',
+      border: '1px solid rgba(148, 163, 184, 0.12)',
+      padding: '3px 10px',
+      borderRadius: 'var(--radius-sm)',
+    },
   };
 
   return (
-    <section id="experience">
-      <div style={s.section}>
-        <h2 style={s.heading}>My <span style={s.accent}>Experience</span></h2>
-        <div style={s.underline} />
-        {experiences.length === 0 ? (
-          <div style={s.empty}>Aucune expérience encore — mettez à jour src/data/portfolio.js</div>
-        ) : (
-          <div style={s.grid}>
-            {experiences.map((exp, i) => (
-              <div key={i} style={s.card}
-                onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(124,58,237,0.4)'}
-                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'}
-              >
+    <section id="experience" style={s.section}>
+      <div className="section-wrapper">
+        <div className="section-header">
+          <div className="section-label">
+            <FiBriefcase />
+            <span>Career & Practical Experience</span>
+          </div>
+          <h2 className="section-title">
+            Work <span className="title-accent">Experience</span>
+          </h2>
+          <p className="section-subtitle">
+            Engineering internships, club technical leadership, and collaborative academic delivery.
+          </p>
+        </div>
+
+        <div style={s.timeline}>
+          {experiences.map((exp, i) => (
+            <div
+              key={i}
+              style={s.card}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.35)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'var(--card-border)';
+                e.currentTarget.style.transform = 'none';
+              }}
+            >
+              <div style={s.cardHeader}>
                 <div>
-                  <p style={s.role}>{exp.role}</p>
-                  <p style={s.company}>{exp.company}</p>
-                  <p style={s.desc}>{exp.description}</p>
-                  <div style={s.tags}>
-                    {exp.tags.map(t => <span key={t} style={s.tag}>{t}</span>)}
+                  <h3 style={s.roleTitle}>{exp.role}</h3>
+                  <div style={s.companyName}>
+                    <FiBriefcase size={14} />
+                    <span>{exp.company}</span>
                   </div>
                 </div>
-                <span style={s.period}>{exp.period}</span>
+                <div style={s.periodBadge}>
+                  <FiCalendar size={13} />
+                  <span>{exp.period}</span>
+                </div>
               </div>
-            ))}
-          </div>
-        )}
+
+              <p style={s.description}>{exp.description}</p>
+
+              <div style={s.tagsContainer}>
+                {exp.tags.map((t) => (
+                  <span key={t} style={s.tag}>{t}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

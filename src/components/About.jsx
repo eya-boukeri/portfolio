@@ -1,134 +1,269 @@
 import React from 'react';
 import { info, aboutCards, languages } from '../data/portfolio';
+import { FiMapPin, FiCpu, FiAward, FiCheckCircle, FiGlobe, FiLayers } from 'react-icons/fi';
+import { FaGraduationCap } from 'react-icons/fa6';
 
 export default function About() {
+  const getCardIcon = (key) => {
+    switch (key) {
+      case 'location':  return <FiMapPin size={20} color="#3b82f6" />;
+      case 'education': return <FaGraduationCap size={20} color="#3b82f6" />;
+      case 'focus':     return <FiCpu size={20} color="#3b82f6" />;
+      case 'goal':      return <FiAward size={20} color="#3b82f6" />;
+      default:          return <FiCheckCircle size={20} color="#3b82f6" />;
+    }
+  };
+
   const s = {
-    section: { 
-      padding: 'clamp(3rem, 8vw, 6rem) clamp(1rem, 4%, 2.5rem)', 
-      maxWidth: 1200, margin: '0 auto' 
+    section: {
+      background: 'var(--bg-secondary)',
+      borderTop: '1px solid rgba(148, 163, 184, 0.08)',
+      borderBottom: '1px solid rgba(148, 163, 184, 0.08)',
     },
-    heading: { fontSize: 'clamp(1.75rem, 5vw, 2.8rem)', fontWeight: 800, marginBottom: 8 },
-    headingAccent: {
-      background: 'linear-gradient(135deg, #7c3aed, #4f8ef7)',
-      WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-    },
-    underline: { width: 60, height: 3, background: 'linear-gradient(135deg, #7c3aed, #4f8ef7)', borderRadius: 2, marginBottom: 48 },
-    grid: { 
-      display: 'grid', 
-      gridTemplateColumns: 'clamp(200px, 100%, 1fr) clamp(200px, 100%, 380px)',
-      gap: 'clamp(2rem, 5vw, 3rem)', 
+    grid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))',
+      gap: 'clamp(2rem, 5vw, 3.5rem)',
       alignItems: 'start',
     },
-    textBlock: {},
-    para: { fontSize: 'clamp(14px, 2vw, 15px)', color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, marginBottom: 20 },
-    paraAccent: { color: '#7c3aed', fontWeight: 500 },
-    paraAccent2: { color: '#4f8ef7', fontWeight: 500 },
-    sidebar: { display: 'flex', flexDirection: 'column', gap: 16 },
-    quickCard: {
-      background: '#161625',
-      border: '1px solid rgba(255,255,255,0.07)',
-      borderRadius: 16, padding: 'clamp(1rem, 3vw, 1.5rem)',
+    leftCol: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 18,
     },
-    quickTitle: { fontSize: 'clamp(14px, 2vw, 16px)', fontWeight: 700, marginBottom: 16 },
-    quickRow: { display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 },
-    quickIcon: { fontSize: 16, color: '#4f8ef7', flexShrink: 0 },
-    quickLabel: { fontSize: 'clamp(13px, 2vw, 14px)', fontWeight: 600, color: '#fff' },
-    quickVal: { fontSize: 'clamp(12px, 1.5vw, 13px)', color: 'rgba(255,255,255,0.5)' },
-    specCard: {
-      background: 'linear-gradient(135deg, #1a1235, #1a1a2e)',
-      border: '1px solid rgba(124,58,237,0.2)',
-      borderRadius: 16, padding: 'clamp(1rem, 3vw, 1.5rem)',
+    para: {
+      fontSize: 'clamp(14px, 2vw, 15px)',
+      color: '#94a3b8',
+      lineHeight: 1.8,
     },
-    specIcon: { fontSize: 32, marginBottom: 12 },
-    specTitle: { fontSize: 'clamp(14px, 2vw, 16px)', fontWeight: 700, marginBottom: 14 },
-    specList: { listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 6 },
-    specItem: { fontSize: 'clamp(12px, 1.5vw, 13px)', color: 'rgba(255,255,255,0.55)', display: 'flex', alignItems: 'center', gap: 8 },
-    specDot: { width: 6, height: 6, borderRadius: '50%', background: '#7c3aed', flexShrink: 0 },
-    cardsRow: { 
-      display: 'grid', 
-      gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-      gap: 14, 
-      marginTop: '2rem' 
+    cardsGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+      gap: 14,
+      marginTop: 10,
+      marginBottom: 10,
     },
     infoCard: {
-      background: '#161625',
-      border: '1px solid rgba(255,255,255,0.07)',
-      borderRadius: 14, padding: 'clamp(1rem, 2vw, 1.25rem)',
+      background: 'var(--card-bg)',
+      border: '1px solid var(--card-border)',
+      borderRadius: 'var(--radius-md)',
+      padding: '16px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 8,
+      transition: 'border-color 0.2s ease, transform 0.2s ease',
     },
-    infoIcon: { fontSize: 'clamp(20px, 4vw, 24px)', marginBottom: 8 },
-    infoTitle: { fontSize: 'clamp(12px, 1.5vw, 13px)', fontWeight: 600, color: '#fff', marginBottom: 4 },
-    infoVal: { fontSize: 'clamp(12px, 1.5vw, 13px)', color: 'rgba(255,255,255,0.5)' },
-    langSection: { marginTop: '2.5rem' },
-    langTitle: { fontSize: 'clamp(16px, 3vw, 18px)', fontWeight: 700, marginBottom: 16 },
-    langRow: { display: 'flex', gap: 12, flexWrap: 'wrap' },
-    langTag: {
-      padding: '8px 20px', borderRadius: 10,
-      background: 'rgba(255,255,255,0.05)',
-      border: '1px solid rgba(255,255,255,0.1)',
-      fontSize: 'clamp(12px, 2vw, 14px)', color: 'rgba(255,255,255,0.7)',
+    infoCardIcon: {
+      width: 36,
+      height: 36,
+      borderRadius: 8,
+      background: 'rgba(37, 99, 235, 0.1)',
+      border: '1px solid rgba(59, 130, 246, 0.2)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    infoCardTitle: {
+      fontSize: 12,
+      fontWeight: 600,
+      textTransform: 'uppercase',
+      letterSpacing: '0.05em',
+      color: '#64748b',
+    },
+    infoCardValue: {
+      fontSize: 14,
+      fontWeight: 600,
+      color: '#f8fafc',
+    },
+    langSection: {
+      paddingTop: 16,
+      borderTop: '1px solid rgba(148, 163, 184, 0.1)',
+    },
+    langTitle: {
+      fontSize: 13,
+      fontWeight: 700,
+      textTransform: 'uppercase',
+      letterSpacing: '0.06em',
+      color: '#94a3b8',
+      marginBottom: 12,
+      display: 'flex',
+      alignItems: 'center',
+      gap: 8,
+    },
+    langPills: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: 10,
+    },
+    langPill: {
+      padding: '6px 14px',
+      borderRadius: 'var(--radius-sm)',
+      background: 'rgba(255, 255, 255, 0.04)',
+      border: '1px solid rgba(148, 163, 184, 0.15)',
+      fontSize: 13,
+      color: '#cbd5e1',
+    },
+    sidebar: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 20,
+    },
+    summaryCard: {
+      background: 'var(--card-bg)',
+      border: '1px solid var(--card-border)',
+      borderRadius: 'var(--radius-lg)',
+      padding: '24px',
+    },
+    summaryTitle: {
+      fontSize: 16,
+      fontWeight: 700,
+      color: '#f8fafc',
+      marginBottom: 16,
+      display: 'flex',
+      alignItems: 'center',
+      gap: 8,
+    },
+    specList: {
+      listStyle: 'none',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 12,
+    },
+    specItem: {
+      fontSize: 14,
+      color: '#cbd5e1',
+      display: 'flex',
+      alignItems: 'center',
+      gap: 10,
+      lineHeight: 1.5,
     },
   };
 
   return (
-    <section id="about" style={{ background: '#0f0f1e' }}>
-      <div style={s.section}>
-        <h2 style={s.heading}>About <span style={s.headingAccent}>Me</span></h2>
-        <div style={s.underline} />
+    <section id="about" style={s.section}>
+      <div className="section-wrapper">
+        <div className="section-header">
+          <div className="section-label">
+            <FiLayers />
+            <span>Profile Overview</span>
+          </div>
+          <h2 className="section-title">
+            About <span className="title-accent">Me</span>
+          </h2>
+          <p className="section-subtitle">
+            An engineering profile driven by rigorous computational thinking, distributed architecture design, and real-world AI applications.
+          </p>
+        </div>
 
         <div style={s.grid}>
-          {/* LEFT TEXT */}
-          <div style={s.textBlock}>
+          {/* Left Column: Biography & Fast Facts */}
+          <div style={s.leftCol}>
             {info.about.map((para, i) => (
               <p key={i} style={s.para}>{para}</p>
             ))}
 
-            <div style={s.cardsRow}>
-              {aboutCards.map((c) => (
-                <div key={c.title} style={s.infoCard}>
-                  <div style={s.infoIcon}>{c.icon}</div>
-                  <div style={s.infoTitle}>{c.title}</div>
-                  <div style={s.infoVal}>{c.value}</div>
-                </div>
-              ))}
-            </div>
-
-            <div style={s.langSection}>
-              <p style={s.langTitle}>Languages</p>
-              <div style={s.langRow}>
-                {languages.map(({ lang, level }) => (
-                  <span key={lang} style={s.langTag}>{lang} ({level})</span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* SIDEBAR */}
-          <div style={s.sidebar}>
-            <div style={s.quickCard}>
-              <p style={s.quickTitle}>Quick Facts</p>
-              {[
-                { label: 'Graduation', val: info.quickFacts.graduation },
-                { label: 'Institution', val: info.quickFacts.institution },
-                { label: 'Interests',  val: info.quickFacts.interests },
-              ].map(r => (
-                <div key={r.label} style={s.quickRow}>
+            {/* Quick Metrics Cards */}
+            <div style={s.cardsGrid}>
+              {aboutCards.map((card) => (
+                <div
+                  key={card.key}
+                  style={s.infoCard}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.35)';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--card-border)';
+                    e.currentTarget.style.transform = 'none';
+                  }}
+                >
+                  <div style={s.infoCardIcon}>
+                    {getCardIcon(card.key)}
+                  </div>
                   <div>
-                    <div style={s.quickLabel}>{r.label}</div>
-                    <div style={s.quickVal}>{r.val}</div>
+                    <div style={s.infoCardTitle}>{card.title}</div>
+                    <div style={s.infoCardValue}>{card.value}</div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div style={s.specCard}>
-              <p style={s.specTitle}>Spécialisations</p>
+            {/* Spoken Languages */}
+            <div style={s.langSection}>
+              <div style={s.langTitle}>
+                <FiGlobe size={15} color="#3b82f6" />
+                <span>Languages</span>
+              </div>
+              <div style={s.langPills}>
+                {languages.map(({ lang, level }) => (
+                  <span key={lang} style={s.langPill}>
+                    <strong style={{ color: '#f8fafc' }}>{lang}</strong> · {level}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Specializations & Highlights */}
+          <div style={s.sidebar}>
+            <div style={s.summaryCard}>
+              <h3 style={s.summaryTitle}>
+                <FiCpu color="#3b82f6" />
+                <span>Core Competencies</span>
+              </h3>
               <ul style={s.specList}>
-                {['Full-Stack Web', 'IA / LLM', 'Algorithmique', 'Bases de donnees', 'IoT', 'Microservices', 'Reseaux'].map(item => (
+                {[
+                  'Agentic AI Workflows & Multi-Agent Reasoning',
+                  'LLMs & Retrieval-Augmented Generation (RAG)',
+                  'Distributed Microservices & Event Buses (Kafka, MQTT)',
+                  'IoMT Telemonitoring & Edge Signal Processing',
+                  'Enterprise Full-Stack Web (.NET 8, Spring Boot, React)',
+                  'Relational & Time-Series Data Engineering',
+                ].map((item) => (
                   <li key={item} style={s.specItem}>
-                    <span style={s.specDot} />{item}
+                    <FiCheckCircle size={16} color="#3b82f6" style={{ flexShrink: 0 }} />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
+            </div>
+
+            <div style={s.summaryCard}>
+              <h3 style={s.summaryTitle}>
+                <FaGraduationCap color="#3b82f6" />
+                <span>Academic Track</span>
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 13, color: '#94a3b8' }}>
+                <div>
+                  <strong style={{ color: '#f8fafc' }}>ENIT — National School of Engineers of Tunis</strong>
+                  <div>Engineering Degree in Software Engineering (2024 — 2027)</div>
+                </div>
+                <div style={{ paddingTop: 8, borderTop: '1px solid rgba(148, 163, 184, 0.08)' }}>
+                  <strong style={{ color: '#f8fafc' }}>IPEIM — Preparatory Institute for Engineering Studies</strong>
+                  <div>Math-Physics Curriculum · National Exam Rank: 405 / 1700</div>
+                </div>
+              </div>
+            </div>
+
+            <div style={s.summaryCard}>
+              <h3 style={s.summaryTitle}>
+                <FiAward color="#3b82f6" />
+                <span>Certifications & Leadership</span>
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 13, color: '#94a3b8' }}>
+                <div>
+                  <strong style={{ color: '#f8fafc' }}>Cisco Certifications</strong>
+                  <div>CCNA 1 (Intro to Networks) & CCNA 2 (Switching, Routing, Wireless)</div>
+                </div>
+                <div style={{ paddingTop: 8, borderTop: '1px solid rgba(148, 163, 184, 0.08)' }}>
+                  <strong style={{ color: '#f8fafc' }}>AI Specialization</strong>
+                  <div>Efficient LLM Customization</div>
+                </div>
+                <div style={{ paddingTop: 8, borderTop: '1px solid rgba(148, 163, 184, 0.08)' }}>
+                  <strong style={{ color: '#f8fafc' }}>IEEE ENIT WIE</strong>
+                  <div>Treasurer & General Secretary (2024–2025) · 3rd place WIE Challenge</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
